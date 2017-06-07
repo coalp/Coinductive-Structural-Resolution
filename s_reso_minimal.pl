@@ -14,7 +14,7 @@ clause_tree(A) :-    % rewriting reduction
             unifying_and_matching_rule(A, Body),
             clause_tree(Body).
 clause_tree(A) :-    % substitution reduction.
-            unifying_but_matching_rule(A, _),
+            unifying_not_matching_rule(A, _),
             clause_tree(A).
 % ----------------------------------------------------------------
 % File dependency: search_rule.pl
