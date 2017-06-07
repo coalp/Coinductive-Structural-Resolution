@@ -1,5 +1,5 @@
 :- set_prolog_flag(generate_debug_info, false).
-% choose clauses whose heads unifies with the goal, and specificly, matches the goal
+% choose clauses whose heads unifies with the goal, and specifically, matches the goal
 unifying_and_matching_rule(A, Body) :-
          copy_term(A,A_copy),           % At run time variable A is bound to the current goal, A_copy then is a variant of A
          clause(A_copy,_,Ref),     % Note 1.
@@ -7,8 +7,8 @@ unifying_and_matching_rule(A, Body) :-
          subsumes_term(A1,A),           % check whether the head also matches the goal, any binding made for checking will be undone by implementation of subsumes_term/2.
          clause(A,Body,Ref).       % If matches, use this rule to reduce the goal.
 
-% choose clauses whose head unifies with the goal, and specificly, does not match the goal
-unifying_but_matching_rule(A, Body) :-
+% choose clauses whose head unifies with the goal, and specifically, does not match the goal
+unifying_not_matching_rule(A, Body) :-
         copy_term(A,A_copy),
         clause(A_copy,_,Ref),
         clause(A1,_,Ref),
