@@ -25,7 +25,7 @@ clause_tree(A, Hypo) :-    % rewriting reduction
             clause_tree(Body, [A|Hypo]).  % A is not instantiated by finding a matching clause
 
 clause_tree(A, Hypo) :-    % substitution reduction.
-            unifying_but_matching_rule(A, _),
+            unifying_not_matching_rule(A, _),
             clause_tree(A, Hypo).
 
 %--------------------------------------------------------------
